@@ -1,0 +1,31 @@
+<mat-card class="mt-5">
+  <form (submit)="onSavePost(postForm)" #postForm="ngForm">
+    <mat-form-field>
+      <input 
+      matInput type="text" 
+      ngModel
+      name="title"
+      required
+      />
+      <mat-error>Title is required</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea 
+      matInput rows="6" 
+      ngModel
+      name="content"
+      required
+      minlength="3"
+      #content="ngModel">
+      
+    </textarea>
+    <mat-error>Minimum length is 3</mat-error>
+    </mat-form-field>
+    <button 
+    class="mt-3"
+    [disabled]="!postForm.valid" mat-raised-button color="primary" 
+    type="submit">
+      Save Post
+    </button>
+  </form>
+</mat-card>
